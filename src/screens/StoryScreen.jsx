@@ -38,26 +38,21 @@ export default function StoryScreen({ slideData, onNext }) {
 
     return (
         <div className="flex flex-col h-full w-full relative">
-            {/* --- HEADER (Badge & Tombol Audio) --- */}
             <div className="flex justify-between items-center mb-6 shrink-0">
                 <span className="bg-yellow-300 px-6 py-2 rounded-full font-bold text-yellow-900 shadow-md border-2 border-white text-lg">Bagian: {slideData.type}</span>
 
-                {/* --- PERBAIKAN TOMBOL AUDIO DISINI --- */}
                 <button
-                    onClick={toggleAudio} // Hubungkan fungsi ke tombol
+                    onClick={toggleAudio}
                     className={`
                         p-3 rounded-full transition shadow-sm border-2 border-white 
                         ${isPlaying ? "bg-green-100 text-green-600 animate-pulse" : "bg-sky-100 text-sky-600 hover:bg-sky-200 hover:scale-110"}
                     `}
                 >
-                    {/* Ganti Ikon sesuai status */}
                     {isPlaying ? <PauseCircle size={28} /> : <Volume2 size={28} />}
                 </button>
             </div>
 
-            {/* --- CONTENT AREA (Grid 2 Kolom) --- */}
             <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8 items-center overflow-y-auto pb-4">
-                {/* KOLOM 1: Gambar Ilustrasi */}
                 <motion.div key={slideData.id} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="w-full aspect-[4/3] bg-gray-200 rounded-3xl border-4 border-white shadow-lg overflow-hidden relative group">
                     <div className="absolute inset-0 flex items-center justify-center text-gray-400">Sedang memuat gambar...</div>
                     <img
@@ -70,9 +65,7 @@ export default function StoryScreen({ slideData, onNext }) {
                     />
                 </motion.div>
 
-                {/* KOLOM 2: Teks & Bank Kata */}
                 <div className="flex flex-col gap-6 h-full justify-center">
-                    {/* Kotak Teks Cerita */}
                     <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="bg-white/60 backdrop-blur-sm p-6 rounded-3xl border-2 border-purple-100 shadow-sm">
                         <p className="text-2xl md:text-3xl font-medium leading-loose text-slate-700 font-fredoka">
                             {slideData.text.split(" ").map((word, i) => {
@@ -86,7 +79,6 @@ export default function StoryScreen({ slideData, onNext }) {
                         </p>
                     </motion.div>
 
-                    {/* Bagian Bank Kata */}
                     <div className="w-full">
                         <GameButton variant="blue" icon={BookOpen} onClick={() => setShowWords(!showWords)} className="w-full mb-4 text-base py-2">
                             {showWords ? "Tutup Bank Kata" : "Buka Bank Kata"}
@@ -105,7 +97,6 @@ export default function StoryScreen({ slideData, onNext }) {
                 </div>
             </div>
 
-            {/* --- FOOTER (Tombol Lanjut) --- */}
             <div className="mt-4 flex justify-end shrink-0 pb-6 pr-2">
                 <GameButton onClick={onNext} variant="orange" icon={ArrowRight}>
                     Lanjut

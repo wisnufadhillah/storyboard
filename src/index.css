@@ -1,16 +1,12 @@
-/* 1. Import Font WAJIB PALING ATAS */
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&display=swap");
 
-/* 2. Import Tailwind WAJIB DI BAWAHNYA */
 @import "tailwindcss";
 
-/* 3. Baru setelah itu konfigurasi tema */
 @theme {
     --font-fredoka: "Fredoka", sans-serif;
     --font-comic: "Comic Sans MS", "Comic Sans", cursive;
 }
 
-/* 4. Reset & Global Styles */
 :root {
     font-family: var(--font-fredoka);
     line-height: 1.5;
