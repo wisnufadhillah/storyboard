@@ -11,6 +11,7 @@ import MenuScreen from "./screens/MenuScreen";
 import StoryScreen from "./screens/StoryScreen";
 import WritingScreen from "./screens/WritingScreen";
 import FeedbackScreen from "./screens/FeedbackScreen";
+import TutorialScreen from "./screens/TutorialScreen"; // 1. TAMBAHAN IMPORT
 
 export default function App() {
     const [screen, setScreen] = useState("intro");
@@ -51,7 +52,14 @@ export default function App() {
             case "intro":
                 return <IntroScreen onStart={handleStart} />;
             case "menu":
-                return <MenuScreen onSelectStory={handleSelectStory} />;
+                return (
+                    <MenuScreen
+                        onSelectStory={handleSelectStory}
+                        onOpenTutorial={() => setScreen("tutorial")} // 2. TAMBAHAN PROP
+                    />
+                );
+            case "tutorial": // 3. TAMBAHAN CASE TUTORIAL
+                return <TutorialScreen onBack={() => setScreen("menu")} />;
             case "story":
                 return <StoryScreen slideData={selectedStory.slides[slideIndex]} onNext={handleNextSlide} />;
             case "writing":

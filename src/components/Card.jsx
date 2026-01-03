@@ -12,7 +12,9 @@ export const Card = ({ children, className = "" }) => {
                 bg-white/90 backdrop-blur-sm 
                 w-full max-w-7xl max-h-[85vh] 
                 rounded-[2.5rem] shadow-2xl shadow-sky-100 border-4 border-white 
-                overflow-y-auto overflow-x-hidden
+                
+                overflow-y-auto overflow-x-hidden no-scrollbar
+                
                 ${className}
             `}
         >
