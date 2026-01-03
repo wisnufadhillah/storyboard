@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react"; // 1. Tambah useEffect & useRef
+import React, { useState, useEffect, useRef } from "react"; 
 import { motion } from "motion/react";
-import { Volume2, ArrowRight, BookOpen, PauseCircle } from "lucide-react"; // 2. Tambah PauseCircle
+import { Volume2, ArrowRight, BookOpen, PauseCircle } from "lucide-react"; 
 import { GameButton } from "../components/Button";
 
 export default function StoryScreen({ slideData, onNext }) {
